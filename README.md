@@ -11,6 +11,10 @@ In order to participate in this workshop, you should have the following installe
 
 Hands-on knowledge of [PHP] and [GIT] are required to participate in this workshop.
 
+## Quality Verification
+
+[![Build Status](https://status.continuousphp.com/git-hub/in2it/ctsr-workshop?token=076cf217-6df2-4d22-b325-0648eb5a97b1&branch=master)](https://continuousphp.com/git-hub/in2it/ctsr-workshop)
+
 ## Installation
 
 Clone the repository into your workspace before attending the workshop.
