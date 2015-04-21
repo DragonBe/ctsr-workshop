@@ -1,0 +1,19 @@
+{
+    "name": "in2it/tutorial",
+    "description": "Tutorial for testing application code",
+    "keywords": ["in2it","tutorial","testing","phpunit"],
+    "license": "MIT",
+    "require-dev": {
+      "phpunit/phpunit": "^4.6"
+    },
+    "autoload": {
+      "psr-4": {
+        "In2it\\Tutorial\\": "src/Tutorial"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "In2it\\Test\\Tutorial\\": "tests/Tutorial"
+      }
+    }
+}
