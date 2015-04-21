@@ -11,7 +11,7 @@
     beStrictAboutChangesToGlobalState="true">
 
     <testsuites>
-        <testsuite name="PHPMentoring Test Suite">
+        <testsuite name="Workshop Test Suite">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>
