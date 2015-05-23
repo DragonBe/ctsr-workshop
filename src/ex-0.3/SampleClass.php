@@ -3,8 +3,8 @@ namespace In2it\Workshop\Ctsr;
 
 class SampleClass
 {
-    public function doSomething()
+    public function doSomething($argument)
     {
-        return 'Hello World!';
+        return 'Hello ' . $argument . '!';
     }
 }
