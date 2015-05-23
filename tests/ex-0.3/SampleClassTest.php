@@ -10,4 +10,14 @@ class SampleClassTest extends \PHPUnit_Framework_TestCase
         $sampleClass = new SampleClass();
         $this->assertSame('Hello World!', $sampleClass->doSomething());
     }
+
+    public function testSomethingReturnsArgument()
+    {
+        $sampleClass = new SampleClass();
+        $argument = 'Class';
+        $this->assertSame(
+            sprintf('Hello %s!', $argument),
+            $sampleClass->doSomething($argument)
+        );
+    }
 }
