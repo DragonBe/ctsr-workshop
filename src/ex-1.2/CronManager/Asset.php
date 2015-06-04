@@ -31,9 +31,16 @@ class Asset
 
     /**
      * @param int $value
+     * @throws \InvalidArgumentException
      */
     public function setValue($value)
     {
+        if (!is_int($value)) {
+            throw new \InvalidArgumentException('You\'ve provided an invalid argument');
+        }
+        if (false === ($result = filter_var($value, FILTER_VALIDATE_INT))) {
+            throw new \InvalidArgumentException('You\'ve provided an invalid argument');
+        }
         $this->value = (int) $value;
     }
 
