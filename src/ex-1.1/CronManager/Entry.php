@@ -30,6 +30,13 @@ class Entry
      */
     protected $command;
 
+    public function __construct($data = null)
+    {
+        if (null !== $data) {
+            $this->populate($data);
+        }
+    }
+
     /**
      * @return \In2it\Workshop\Ctsr\CronManager\AssetCollection
      */
@@ -142,5 +149,38 @@ class Entry
     public function setCommand($command)
     {
         $this->command = $command;
+    }
+
+    public function populate($row)
+    {
+        if (is_array($row)) {
+            $row = new \ArrayObject($row, \ArrayObject::ARRAY_AS_PROPS);
+        }
+        $this->safeSet($row, 'minutes')
+            ->safeSet($row, 'hours')
+            ->safeSet($row, 'dom')
+            ->safeSet($row, 'months')
+            ->safeSet($row, 'dow');
+        $this->setCommand(isset ($row->command) ? $row->command : null);
+    }
+
+    /**
+     * Safely assign values to the properties
+     *
+     * @param \ArrayObject $dataRow
+     * @param string $key
+     * @return Entry
+     */
+    protected function safeSet($dataRow, $key)
+    {
+        $method = 'set' . ucfirst($key);
+        if (isset ($dataRow->$key) && method_exists($this, $method)) {
+            $assetCollection = new AssetCollection();
+            foreach ($dataRow->$key as $data) {
+                $assetCollection->addAsset(new Asset($data));
+            }
+            $this->$method($assetCollection);
+        }
+        return $this;
     }
 }

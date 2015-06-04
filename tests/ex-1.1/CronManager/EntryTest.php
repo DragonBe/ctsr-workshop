@@ -75,4 +75,47 @@ class EntryTest extends \PHPUnit_Framework_TestCase
             $entry->getCommand()
         );
     }
+
+    public function entryDataProvider()
+    {
+        return array (
+            array (
+                array (
+                    'minutes' => range(0, 59),
+                    'hours' => range(0, 23),
+                    'dom' => range(1, 31),
+                    'months' => range(1, 12),
+                    'dow' => range(0, 7),
+                    'command' => 'echo test',
+                ),
+            ),
+            array (
+                array (
+                    'minutes' => range(0, 59, 2),
+                    'hours' => range(0, 23, 2),
+                    'dom' => range(1, 31, 5),
+                    'months' => range(1, 12, 3),
+                    'dow' => range(0, 7, 2),
+                    'command' => 'echo test',
+                ),
+            ),
+        );
+    }
+    /**
+     * @dataProvider entryDataProvider
+     * @covers In2it\Workshop\Ctsr\CronManager\Entry::__construct
+     * @covers In2it\Workshop\Ctsr\CronManager\Entry::populate
+     * @covers In2it\Workshop\Ctsr\CronManager\Entry::safeSet
+     */
+    public function testProcessingCronEntries($entryData)
+    {
+        $entry = new Entry($entryData);
+
+        $this->assertCount(count($entryData['minutes']), $entry->getMinutes());
+        $this->assertCount(count($entryData['hours']), $entry->getHours());
+        $this->assertCount(count($entryData['dom']), $entry->getDom());
+        $this->assertCount(count($entryData['months']), $entry->getMonths());
+        $this->assertCount(count($entryData['dow']), $entry->getDow());
+        $this->assertEquals($entryData['command'], $entry->getCommand());
+    }
 }
