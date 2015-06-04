@@ -9,12 +9,12 @@
     },
     "autoload": {
       "psr-4": {
-        "In2it\\Workshop\\Ctrs\\": "src/ex-1.0"
+        "In2it\\Workshop\\Ctsr\\": "src/ex-1.1"
       }
     },
     "autoload-dev": {
       "psr-4": {
-        "In2it\\Test\\Workshop\\Ctrs\\": "tests/ex-1.0"
+        "In2it\\Test\\Workshop\\Ctsr\\": "tests/ex-1.1"
       }
     }
 }
