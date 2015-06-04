@@ -8,17 +8,13 @@ class AssetTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers In2it\Workshop\Ctsr\CronManager\Asset::setValue
      * @covers In2it\Workshop\Ctsr\CronManager\Asset::getValue
-     * @covers In2it\Workshop\Ctsr\CronManager\Asset::setInterval
-     * @covers In2it\Workshop\Ctsr\CronManager\Asset::getInterval
      */
     public function testAssetCanContainValueAndLabel()
     {
         $asset = new Asset();
         $asset->setValue(1);
-        $asset->setInterval(1);
 
         $this->assertSame(1, $asset->getValue());
-        $this->assertSame(1, $asset->getInterval());
     }
 
     /**
@@ -26,9 +22,8 @@ class AssetTest extends \PHPUnit_Framework_TestCase
      */
     public function testAssetCanBeSetAtConstruct()
     {
-        $asset = new Asset(1, 1);
+        $asset = new Asset(1);
 
         $this->assertSame(1, $asset->getValue());
-        $this->assertSame(1, $asset->getInterval());
     }
 }

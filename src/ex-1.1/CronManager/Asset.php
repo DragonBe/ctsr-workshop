@@ -13,18 +13,11 @@ class Asset
      * @var int The value for the asset
      */
     protected $value;
-    /**
-     * @var int The interval for the asset
-     */
-    protected $interval;
 
-    function __construct($value = null, $interval = null)
+    function __construct($value = null)
     {
         if (null !== $value) {
             $this->setValue($value);
-        }
-        if (null !== $interval) {
-            $this->setInterval($interval);
         }
     }
 
@@ -42,22 +35,6 @@ class Asset
     public function setValue($value)
     {
         $this->value = (int) $value;
-    }
-
-    /**
-     * @return int
-     */
-    public function getInterval()
-    {
-        return $this->interval;
-    }
-
-    /**
-     * @param int $interval
-     */
-    public function setInterval($interval)
-    {
-        $this->interval = $interval;
     }
 
 }
