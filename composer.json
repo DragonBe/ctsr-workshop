@@ -9,12 +9,18 @@
     },
     "autoload": {
       "psr-4": {
-        "In2it\\Workshop\\Ctrs\\": "src/ex-2.0"
+        "In2it\\Workshop\\Ctrs\\": "src/ex-2.1"
+      },
+      "psr-0": {
+        "Zend_": "src/ex-2.1/Zend",
+        "Payments_": "src/ex-2.1/Payment",
+        "Contact_": "src/ex-2.1/Contact",
+        "Invoice_": "src/ex-2.1/Invoice"
       }
     },
     "autoload-dev": {
       "psr-4": {
-        "In2it\\Test\\Workshop\\Ctrs\\": "tests/ex-2.0"
+        "In2it\\Test\\Workshop\\Ctrs\\": "tests/ex-2.1"
       }
     }
 }
